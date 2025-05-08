@@ -1,95 +1,90 @@
-// ÖĞRENCİ ADI:      ARDA AKBAL
-// ÖĞRENCİ NUMARASI: B231210024
-// DERS ADI:         NESNEYE DAYALI PROGRAMLAMA
-// GRUP:             1 - C 
-
 namespace ArdaNDP2
 {
 
     public partial class Form1 : Form
     {
-        bool yukleme = false; // Yükle butonuna basılıp, sözlüğün yüklenip yüklenmediğini kontrol ediyoruz
+        bool yukleme = false; // YÃ¼kle butonuna basÄ±lÄ±p, sÃ¶zlÃ¼ÄŸÃ¼n yÃ¼klenip yÃ¼klenmediÄŸini kontrol ediyoruz
 
         public Form1()
         {
             InitializeComponent();
 
-            if(yukleme == false) // Eğer sözlük yükleme işlemi yapılmamışsa
+            if(yukleme == false) // EÄŸer sÃ¶zlÃ¼k yÃ¼kleme iÅŸlemi yapÄ±lmamÄ±ÅŸsa
             {
-                baslaButton.Enabled = false; // Başla butonu kapatılıyor
-                baslaButton.BackColor = Color.FromArgb(128, 255, 255, 255); // Şeffaf görünüm veriliyor
+                baslaButton.Enabled = false; // BaÅŸla butonu kapatÄ±lÄ±yor
+                baslaButton.BackColor = Color.FromArgb(128, 255, 255, 255); // Åeffaf gÃ¶rÃ¼nÃ¼m veriliyor
             }
         }
 
         public void Form1_Load(object sender, EventArgs e)
         {
-            sozlukBox1.Items.Add("YOKDIL Fen Bilimleri.txt"); // .exe dosyasının bulunduğu klasöre sözlükler ekleniyor
-            sozlukBox1.Items.Add("YOKDIL Sosyal Bilimler.txt"); // ve bu sözlükler sozlukBox1 adlı comboBox'a obje olarak ekleniyor
+            sozlukBox1.Items.Add("YOKDIL Fen Bilimleri.txt"); // .exe dosyasÄ±nÄ±n bulunduÄŸu klasÃ¶re sÃ¶zlÃ¼kler ekleniyor
+            sozlukBox1.Items.Add("YOKDIL Sosyal Bilimler.txt"); // ve bu sÃ¶zlÃ¼kler sozlukBox1 adlÄ± comboBox'a obje olarak ekleniyor
         }
 
         public void sozlukBox1_Click(object sender, EventArgs e)
         {
-            sozlukBox1.DroppedDown = true; // sozlukBox1'in üzerine tıklanınca seçeneklerin açılması sağlanıyor
+            sozlukBox1.DroppedDown = true; // sozlukBox1'in Ã¼zerine tÄ±klanÄ±nca seÃ§eneklerin aÃ§Ä±lmasÄ± saÄŸlanÄ±yor
         }
 
-        List<string> ingilizceKelimeler = new List<string>(); // İngilizce kelimelerin depolanacağı boş bir liste oluşturuluyor
-        List<string> turkceKelimeler = new List<string>(); // Türkçe kelimelerin depolanacağı boş bir liste oluşturuluyor
+        List<string> ingilizceKelimeler = new List<string>(); // Ä°ngilizce kelimelerin depolanacaÄŸÄ± boÅŸ bir liste oluÅŸturuluyor
+        List<string> turkceKelimeler = new List<string>(); // TÃ¼rkÃ§e kelimelerin depolanacaÄŸÄ± boÅŸ bir liste oluÅŸturuluyor
         public void yukleButton_Click(object sender, EventArgs e)
         {
-            string secilen = ""; // secilen isimli değişken, boş olarak oluşturuluyor
+            string secilen = ""; // secilen isimli deÄŸiÅŸken, boÅŸ olarak oluÅŸturuluyor
             if(sozlukBox1.SelectedItem == null) 
             {
-                MessageBox.Show("Önce sözlük seçmelisiniz!"); // Eğer sözlük seçilmemişse sözlük seçme uyarısı veriliyor
+                MessageBox.Show("Ã–nce sÃ¶zlÃ¼k seÃ§melisiniz!"); // EÄŸer sÃ¶zlÃ¼k seÃ§ilmemiÅŸse sÃ¶zlÃ¼k seÃ§me uyarÄ±sÄ± veriliyor
                 return;
             }
             else
             {
-                secilen = sozlukBox1.SelectedItem.ToString(); // Sözlük seçildiğinde, seçilen sözlük objesi, string'e dönüştürülüyor
-                string[] satirlar = File.ReadAllLines($"{secilen}"); // Seçilen .txt dosyasının içindeki her bir satırı, satirlar adlı bir diziye dönüştürüyoruz
+                secilen = sozlukBox1.SelectedItem.ToString(); // SÃ¶zlÃ¼k seÃ§ildiÄŸinde, seÃ§ilen sÃ¶zlÃ¼k objesi, string'e dÃ¶nÃ¼ÅŸtÃ¼rÃ¼lÃ¼yor
+                string[] satirlar = File.ReadAllLines($"{secilen}"); // SeÃ§ilen .txt dosyasÄ±nÄ±n iÃ§indeki her bir satÄ±rÄ±, satirlar adlÄ± bir diziye dÃ¶nÃ¼ÅŸtÃ¼rÃ¼yoruz
 
                 foreach (string satir in satirlar)
                 {
-                    if (!string.IsNullOrWhiteSpace(satir)) // Eğer boş eleman yoksa
+                    if (!string.IsNullOrWhiteSpace(satir)) // EÄŸer boÅŸ eleman yoksa
                     {
-                        string[] parcalar = satir.Split('\t'); // Elemanları tab karakterine göre parçaya ayır
-                        if (parcalar.Length >= 2) // Parçaların sayısı 2'den büyük eşitse
+                        string[] parcalar = satir.Split('\t'); // ElemanlarÄ± tab karakterine gÃ¶re parÃ§aya ayÄ±r
+                        if (parcalar.Length >= 2) // ParÃ§alarÄ±n sayÄ±sÄ± 2'den bÃ¼yÃ¼k eÅŸitse
                         {
-                            ingilizceKelimeler.Add(parcalar[0]); // İlk parçayı ingilizceKelimeler listesine ekle
-                            turkceKelimeler.Add(parcalar[1]); // İkinci parçayı turkceKelimeler listesine ekle
+                            ingilizceKelimeler.Add(parcalar[0]); // Ä°lk parÃ§ayÄ± ingilizceKelimeler listesine ekle
+                            turkceKelimeler.Add(parcalar[1]); // Ä°kinci parÃ§ayÄ± turkceKelimeler listesine ekle
                         }
                     }
                 }
 
-                if (ingilizceKelimeler.Count != 0 && turkceKelimeler.Count != 0) // Eğer bu listelerin eleman sayıları 0 değilse
+                if (ingilizceKelimeler.Count != 0 && turkceKelimeler.Count != 0) // EÄŸer bu listelerin eleman sayÄ±larÄ± 0 deÄŸilse
                 {
-                    MessageBox.Show("Sözlük başarıyla yüklendi!");
-                    baslaButton.Enabled = true; // Başla butonunu aktifleştir
+                    MessageBox.Show("SÃ¶zlÃ¼k baÅŸarÄ±yla yÃ¼klendi!");
+                    baslaButton.Enabled = true; // BaÅŸla butonunu aktifleÅŸtir
                     return;
                    
                 }
-                else // 0'dan farklıysa
+                else // 0'dan farklÄ±ysa
                 {
-                    MessageBox.Show("Sözlük yüklenemedi!"); 
+                    MessageBox.Show("SÃ¶zlÃ¼k yÃ¼klenemedi!"); 
                 }
             }   
         }
 
         public void baslaButton_Click(object sender, EventArgs e)
         {
-            if (ingilizceKelimeler.Count == 0 && turkceKelimeler.Count == 0) // Eğer listelerin eleman sayısı sıfırsa
+            if (ingilizceKelimeler.Count == 0 && turkceKelimeler.Count == 0) // EÄŸer listelerin eleman sayÄ±sÄ± sÄ±fÄ±rsa
             {
-                MessageBox.Show("Önce bir sözlük yüklemelisin!"); // Önce sözlük yüklenmesini iste
-                return; // Bu kısım zaten çalışmaz çünkü yükleme yapılmadan başla butonuna basılmıyor. Yine de koyduk.
+                MessageBox.Show("Ã–nce bir sÃ¶zlÃ¼k yÃ¼klemelisin!"); // Ã–nce sÃ¶zlÃ¼k yÃ¼klenmesini iste
+                return; // Bu kÄ±sÄ±m zaten Ã§alÄ±ÅŸmaz Ã§Ã¼nkÃ¼ yÃ¼kleme yapÄ±lmadan baÅŸla butonuna basÄ±lmÄ±yor. Yine de koyduk.
             }
-            else // Eleman sayıları 0'dan farklıysa
+            else // Eleman sayÄ±larÄ± 0'dan farklÄ±ysa
             {
-                Form2 form2 = new Form2(ingilizceKelimeler, turkceKelimeler); // O listeleri Form2'ye yükleyecek şekilde form2 oluştur
-                form2.Show(); // ve form2'yi aç
+                Form2 form2 = new Form2(ingilizceKelimeler, turkceKelimeler); // O listeleri Form2'ye yÃ¼kleyecek ÅŸekilde form2 oluÅŸtur
+                form2.Show(); // ve form2'yi aÃ§
             }
         }
         public void cikisButton_Click(object sender, EventArgs e)
         {
-            Close(); // Çıkış butonuyla tüm programı kapat
+            Close(); // Ã‡Ä±kÄ±ÅŸ butonuyla tÃ¼m programÄ± kapat
         }
     }
 }
