@@ -1,8 +1,3 @@
-﻿// ÖĞRENCİ ADI:      ARDA AKBAL
-// ÖĞRENCİ NUMARASI: B231210024
-// DERS ADI:         NESNEYE DAYALI PROGRAMLAMA
-// GRUP:             1 - C 
-
 using System.Data;
 namespace ArdaNDP2
 {
