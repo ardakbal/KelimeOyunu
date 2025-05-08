@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "ArdaNDP2/1.0.0": {
+        "runtime": {
+          "ArdaNDP2.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ArdaNDP2/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
