@@ -12,7 +12,7 @@ Bu oyun C# kullanılarak Visual Studio 2022 IDE'sinde yapılmıştır. Oyun şu 
 3 - "Başla" tuşuna basılır ve oyun ekranı olan 2. pencere açılır. 
 
 4 - Sol üstte oyuncunun kaçıncı soruda olduğu, sağ üstte puanı, ortada sorulan kelime, aşağıda ise şıklar bulunmaktadır. 4 şık vardır.
-"Fotoğraf buraya"
+![Image](https://github.com/user-attachments/assets/55f9b95f-918b-4d73-aa01-51f2a09edd53)
 
 5 - Herhangi bir süre sınırlaması yoktur. Oyuncu dilediği kadar oynayabilir.
 
