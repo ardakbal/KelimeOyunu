@@ -1,8 +1,6 @@
 # KelimeOyunu
 C# Windows Forms Uygulaması ile İngilizce kelime bilme oyunu. .NET 9.0 kurulu olan bilgisayarlarda çalıştırılabilir.
 
-![Image](https://github.com/user-attachments/assets/65afeabd-1a3f-40f8-8c88-7c719e36217a)
-
 Bu oyun C# kullanılarak Visual Studio 2022 IDE'sinde yapılmıştır. Oyun şu şekilde oynanır:
 
 1 - Kullanıcı oyunu başlattığında karşısına hangi kategorideki kelimelerle oynamak istediğinin sorulduğu bir pencere açılır. Seçilebilecek sözlükler YÖKDİL Fen Bilimleri ve YÖKDİL Sosyal Bilimler'dir.
